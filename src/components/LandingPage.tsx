@@ -143,24 +143,46 @@ const LandingPage = () => {
       
       {/* HEADER SECTION */}
       <section className="py-16 text-center px-4 relative z-10">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 italic tracking-tight">Real Results. Not Just Good Designs.</h1>
-        <p className="text-gray-500 max-w-2xl mx-auto text-sm md:text-base">We don't just make creatives, we help brands generate revenue.</p>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mt-12">
-          <div className="bg-white/50 backdrop-blur-sm p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col items-center">
-            <span className="text-orange-600 text-3xl font-black">₹5Cr+</span>
-            <span className="text-gray-500 text-[10px] uppercase tracking-widest mt-2 font-bold">Revenue Generated</span>
-          </div>
-          <div className="bg-white/50 backdrop-blur-sm p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col items-center">
-            <span className="text-orange-600 text-3xl font-black">8-10x</span>
-            <span className="text-gray-500 text-[10px] uppercase tracking-widest mt-2 font-bold">ROAS Average</span>
-          </div>
-          <div className="bg-white/50 backdrop-blur-sm p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col items-center">
-            <span className="text-orange-600 text-3xl font-black uppercase">SCALED</span>
-            <span className="text-gray-500 text-[10px] uppercase tracking-widest mt-2 font-bold">D2C Success Stories</span>
-          </div>
-        </div>
-      </section>
+  <h1 className="text-4xl md:text-5xl font-bold mb-4 italic tracking-tight">
+    Real Results. Not Just Good Designs.
+  </h1>
+  <p className="text-gray-500 max-w-2xl mx-auto text-sm md:text-base">
+    We don't just make creatives, we help brands generate revenue.
+  </p>
+  
+  {/* 
+      CHANGE: Updated 'grid-cols-1' to 'grid-cols-2'. 
+      Added 'gap-4' for mobile and 'md:gap-6' for desktop.
+  */}
+  <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 max-w-5xl mx-auto mt-12">
+    
+    {/* Card 1 */}
+    <div className="bg-white/50 backdrop-blur-sm p-6 md:p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col items-center justify-center">
+      <span className="text-orange-600 text-2xl md:text-3xl font-black">₹5Cr+</span>
+      <span className="text-gray-500 text-[8px] md:text-[10px] uppercase tracking-widest mt-2 font-bold leading-tight">
+        Revenue Generated
+      </span>
+    </div>
+
+    {/* Card 2 */}
+    <div className="bg-white/50 backdrop-blur-sm p-6 md:p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col items-center justify-center">
+      <span className="text-orange-600 text-2xl md:text-3xl font-black">8-10x</span>
+      <span className="text-gray-500 text-[8px] md:text-[10px] uppercase tracking-widest mt-2 font-bold leading-tight">
+        ROAS Average
+      </span>
+    </div>
+
+    {/* Card 3 - 'col-span-2 md:col-span-1' makes it full width on mobile grid if you want it centered, 
+        or leave it as is to just let it sit in the next grid cell */}
+    <div className="col-span-2 md:col-span-1 bg-white/50 backdrop-blur-sm p-6 md:p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col items-center justify-center">
+      <span className="text-orange-600 text-2xl md:text-3xl font-black uppercase">SCALED</span>
+      <span className="text-gray-500 text-[8px] md:text-[10px] uppercase tracking-widest mt-2 font-bold leading-tight">
+        D2C Success Stories
+      </span>
+    </div>
+
+  </div>
+</section>
 
       {/* PORTFOLIO STRIP */}
       <section className="w-full bg-gray-50 py-10 overflow-hidden">
