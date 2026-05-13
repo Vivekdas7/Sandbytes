@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion';
-import { Menu, X, Phone, Mail, ChevronRight } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
 
 // Main Components
 import { HeroSection } from './components/HeroSection';
 import { Features } from './components/Features';
 import { Testimonials } from './components/Testimonials';
 import { TeamSection } from './components/TeamSection';
-import { PricingFAQ } from './components/PricingFAQ';
 import { Footer } from './components/Footer';
 
 // Legal & Secondary Pages
@@ -17,13 +16,29 @@ import { ContactPage } from './components/ContactPage';
 import { PrivacyPolicy } from './components/PrivacyPolicy';
 import { TermsOfService } from './components/TermsOfService';
 import { Disclaimer } from './components/Disclaimer';
+import LandingPage from './components/LandingPage';
+import PricingSection from './components/PricingSection';
 
-// --- HELPER: SCROLL TO TOP ON ROUTE CHANGE ---
-const ScrollToTop = () => {
-  const { pathname } = useLocation();
+// --- HELPER: SCROLL TO TOP & HASH HANDLING ---
+const ScrollHandler = () => {
+  const { pathname, hash } = useLocation();
+
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    // If there's no hash, scroll to top
+    if (!hash) {
+      window.scrollTo(0, 0);
+    } else {
+      // If there's a hash, wait a split second for the component to mount, then scroll
+      setTimeout(() => {
+        const id = hash.replace('#', '');
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  }, [pathname, hash]);
+
   return null;
 };
 
@@ -48,22 +63,20 @@ const Navigation: React.FC<{ isMenuOpen: boolean; setIsMenuOpen: (val: boolean) 
           
           <motion.nav initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="hidden md:flex gap-1 bg-white/80 backdrop-blur-md p-1.5 rounded-full border border-black/5 shadow-sm pointer-events-auto">
             {navItems.map((item) => (
-              item.href.startsWith('/#') ? (
-                <a key={item.name} href={item.href} className="px-6 py-2.5 rounded-full text-sm font-bold text-zinc-500 hover:text-zinc-900 hover:bg-zinc-50 transition-all">
-                  {item.name}
-                </a>
-              ) : (
-                <Link key={item.name} to={item.href} className="px-6 py-2.5 rounded-full text-sm font-bold text-zinc-500 hover:text-zinc-900 hover:bg-zinc-50 transition-all">
-                  {item.name}
-                </Link>
-              )
+              <Link 
+                key={item.name} 
+                to={item.href} 
+                className="px-6 py-2.5 rounded-full text-sm font-bold text-zinc-500 hover:text-zinc-900 hover:bg-zinc-50 transition-all"
+              >
+                {item.name}
+              </Link>
             ))}
           </motion.nav>
 
           <div className="flex items-center gap-2 pointer-events-auto">
             <a href="tel:+917031139797" className="flex items-center justify-center w-11 h-11 bg-white md:bg-[#1A1A1A] text-zinc-900 md:text-white rounded-2xl md:rounded-full md:px-6 md:w-auto shadow-sm md:shadow-lg border border-black/5 md:border-none hover:scale-105 active:scale-95 transition-all">
               <Phone size={18} className="md:mr-2" />
-              <span className="hidden md:block text-sm font-bold">Call Now</span>
+              <span className="hidden md:block text-sm font-bold">Book a Meeting</span>
             </a>
             <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden w-11 h-11 bg-white rounded-2xl flex items-center justify-center border border-black/5 shadow-sm text-zinc-900">
               {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -98,11 +111,12 @@ const Navigation: React.FC<{ isMenuOpen: boolean; setIsMenuOpen: (val: boolean) 
 
 const HomePage = () => (
   <>
-    <HeroSection />
+    <div id="work"><HeroSection /></div>
+    <LandingPage />
     <div id="services"><Features /></div>
     <div id="testimonials"><Testimonials /></div>
     <TeamSection />
-    <div id="pricing"><PricingFAQ /></div>
+    <div id="pricing"><PricingSection /></div>
   </>
 );
 
@@ -113,7 +127,7 @@ const App: React.FC = () => {
 
   return (
     <Router>
-      <ScrollToTop />
+      <ScrollHandler /> {/* Replaced ScrollToTop with smarter ScrollHandler */}
       <div className="min-h-screen bg-[#F4F4F4] text-[#1A1A1A] selection:bg-zinc-900 selection:text-white overflow-x-hidden font-sans">
         
         <motion.div className="fixed top-0 left-0 right-0 h-1 bg-zinc-900 origin-left z-[60]" style={{ scaleX }} />
@@ -132,7 +146,6 @@ const App: React.FC = () => {
           <Footer />
         </main>
 
-        {/* --- GLOBAL BACKGROUND GRADIENTS --- */}
         <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
           <div className="absolute top-[-5%] left-[-10%] w-[80%] h-[40%] bg-blue-100/40 blur-[80px] rounded-full" />
           <div className="absolute bottom-[10%] right-[-10%] w-[80%] h-[40%] bg-zinc-200/60 blur-[80px] rounded-full" />

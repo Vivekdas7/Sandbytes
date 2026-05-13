@@ -54,7 +54,7 @@ export const HeroSection: React.FC = () => {
           transition={{ delay: 0.2 }}
           className="text-zinc-500 font-bold text-sm md:text-base tracking-tight"
         >
-          Helped Raise 50 Lakhs+ in 2025. 47+ Completed Projects
+         Helped Generate 5 Cr+ in 2025. Worked with 47+ Brands & more than 100+ Ad Creatives.
         </motion.p>
 
         <motion.h1 
@@ -62,8 +62,8 @@ export const HeroSection: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8 }}
           className="text-[40px] md:text-7xl font-bold tracking-tighter leading-[1.1] md:leading-[1.05] text-zinc-900"
-        >
-          A full-stack design and dev partner for <span className="text-zinc-400 italic">high-growth</span> startups
+        >Turn Your Product Photos Into <span className="text-zinc-400 italic">Scroll-Stopping </span> Ads
+That Actually Sell
         </motion.h1>
 
         <motion.p 
@@ -72,7 +72,8 @@ export const HeroSection: React.FC = () => {
           transition={{ delay: 0.4, duration: 0.8 }}
           className="text-lg md:text-xl text-zinc-500 max-w-2xl mx-auto leading-relaxed"
         >
-          A quality-obsessed design and development partner that moves fast and actually gets things shipped.
+         We help D2C brands create high-converting ad creatives and scale them with 
+performance-driven strategies.
         </motion.p>
 
         {/* --- BUTTON GROUP --- */}
@@ -90,7 +91,7 @@ export const HeroSection: React.FC = () => {
           >
             <button className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#1A1A1A] text-white px-10 py-5 rounded-full font-bold hover:scale-105 active:scale-95 transition-all shadow-xl group">
               <Calendar size={20} className="group-hover:rotate-12 transition-transform" />
-              Book Intro Call
+              Get 2 Free Ad Creatives
             </button>
           </a>
           <a 
@@ -154,7 +155,7 @@ export const HeroSection: React.FC = () => {
         className="mt-24 md:mt-32 w-full max-w-6xl px-6 pb-20"
       >
         <p className="text-center font-bold text-[10px] md:text-[11px] uppercase tracking-[0.25em] text-zinc-400 mb-10">
-          Trusted by startups and industry leaders worldwide.
+         Inspired By
         </p>
         
         <div className="grid grid-cols-3 md:flex md:flex-wrap justify-center items-center gap-x-8 md:gap-x-16 gap-y-10 opacity-30 hover:opacity-100 transition-opacity duration-500">

@@ -2,10 +2,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const teamMembers = [
-  { name: "Ankan", role: "Founder & Designer", img: "assets/vishesh.svg" },
+  { name: "Manas", role: "AI Designer", img: "assets/vishesh.svg" },
   { name: "Vivek", role: "Project Manager", img: "assets/vipul.svg" },
-  { name: "Arjun", role: "Frontend Developer", img: "assets/peter.svg" },
-  { name: "Ishaan", role: "Frontend Developer", img: "assets/pawel.svg" },
+  { name: "Ankan", role: "Media Buyer", img: "assets/peter.svg" },
+  { name: "Abhik", role: "Full-Stack Developer", img: "assets/pawel.svg" },
   { name: "Rohan", role: "Head of Sales", img: "assets/marcel.svg" },
   { name: "Aditya", role: "Motion Designer", img: "assets/karan.svg" },
   // LOGO WILL BE INSERTED HERE IN THE GRID
